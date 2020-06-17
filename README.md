@@ -8,6 +8,7 @@ GPDB Install SOP 사용법
 -	업로드 경로 : /data/staging
 -	/data filesystem에 staging 폴더 생성하여 작업
 4.	GPDB Install SOP 절차에 따라 GPDB 설치 진행
+5.  SOP v1.2 변경 사항 - resource group 설정 내용 추가
 
 ------------------------------------------------------------------------------------------
 How to use GPDB Install SOP
@@ -18,3 +19,4 @@ How to use GPDB Install SOP
 -	Upload path: / data / staging
 -	work by creating staging folder in / data filesystem
 4.	Follow the GPDB Install SOP procedure to install GPDB
+5.  SOP v1.2 updated - resource group setting contents added
