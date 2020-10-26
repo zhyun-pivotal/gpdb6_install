@@ -1,4 +1,6 @@
 # gpdb6_install
+(last update date : 2020/10/23)
+Tip : If same file is in this folder, you should choose the latest file.
 
 GPDB Install SOP 사용법
 
