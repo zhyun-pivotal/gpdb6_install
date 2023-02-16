@@ -1,6 +1,6 @@
-# gpdb6_install
-(last update date : 2022/02/16)
-Tip : If same file is in this folder, you should choose the latest file.
+# User Guide
+- last update date : 2022/02/16
+- Tip : If same file is in this folder, you should choose the latest file.
 
 ------------------------------------------------------------------------------------------
 # A. GPDB Install SOP 사용법
