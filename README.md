@@ -25,20 +25,20 @@ A. How to use GPDB Install SOP
 5. SOP v1.2 updated - resource group setting contents added
 
 ------------------------------------------------------------------------------------------
-2. remotechk 설정 및 사용법
+B. remotechk 설정 및 사용법
 
-(1) 설정
+1. 설정
   - /home/gpadmin/remotechk 디렉토리 생성
   - shell scripts (remotechk.sh, crt_service_monitoring.sh)를 /home/gpadmin/remotechk 디렉토리에 생성
   - crt_service_monitoring.sh 파일 실행하여 dba.service_monitoring 테이블 생성
-(2) 사용
+2. 사용
   - Greenplum 점검이 필요한 경우 remotechk.sh을 수행
 ------------------------------------------------------------------------------------------
-2. How to setup and use remotechk
+B. How to setup and use remotechk
 
-(1) Setup
+1. Setup
   - make a directory /home/gpadmin/remotechk
   - make shell scripts (remotechk.sh, crt_service_monitoring.sh) on the /home/gpadmin/remotechk path
   - run crt_service_monitoring.sh for making dba.service_monitoring table
-(2) Use
+2. Use
   - run remotechk.sh if you want to check the Greenplum health
