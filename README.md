@@ -3,7 +3,7 @@
 Tip : If same file is in this folder, you should choose the latest file.
 
 ------------------------------------------------------------------------------------------
-A. GPDB Install SOP 사용법
+# A. GPDB Install SOP 사용법
 
 1. [Clone or download] 버튼 클릭하여 파일 다운로드
 2. 다운로드된 zip 파일의 압축을 해제
@@ -14,7 +14,7 @@ A. GPDB Install SOP 사용법
 5. SOP v1.2 변경 사항 - resource group 설정 내용 추가
 
 ------------------------------------------------------------------------------------------
-A. How to use GPDB Install SOP
+# A. How to use GPDB Install SOP
 
 1. Click the [Clone or download] button to download the file
 2. Extract the downloaded zip file
@@ -25,7 +25,7 @@ A. How to use GPDB Install SOP
 5. SOP v1.2 updated - resource group setting contents added
 
 ------------------------------------------------------------------------------------------
-B. remotechk 설정 및 사용법
+# B. remotechk 설정 및 사용법
 
 1. 설정
   - /home/gpadmin/remotechk 디렉토리 생성
@@ -34,7 +34,7 @@ B. remotechk 설정 및 사용법
 2. 사용
   - Greenplum 점검이 필요한 경우 remotechk.sh을 수행
 ------------------------------------------------------------------------------------------
-B. How to setup and use remotechk
+# B. How to setup and use remotechk
 
 1. Setup
   - make a directory /home/gpadmin/remotechk
