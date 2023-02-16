@@ -5,13 +5,13 @@ Tip : If same file is in this folder, you should choose the latest file.
 ------------------------------------------------------------------------------------------
 1. GPDB Install SOP 사용법
 
-A. [Clone or download] 버튼 클릭하여 파일 다운로드
-B. 다운로드된 zip 파일의 압축을 해제
-C. 압축 해제된 파일들(설치 가이드 문서와 README 파일을 제외) Greenplum master node에 업로드
+1. [Clone or download] 버튼 클릭하여 파일 다운로드
+2. 다운로드된 zip 파일의 압축을 해제
+3. 압축 해제된 파일들(설치 가이드 문서와 README 파일을 제외) Greenplum master node에 업로드
   -	업로드 경로 : /data/staging
   -	/data filesystem에 staging 폴더 생성하여 작업
-GPDB Install SOP 절차에 따라 GPDB 설치 진행
-SOP v1.2 변경 사항 - resource group 설정 내용 추가
+4. GPDB Install SOP 절차에 따라 GPDB 설치 진행
+5. SOP v1.2 변경 사항 - resource group 설정 내용 추가
 
 ------------------------------------------------------------------------------------------
 1. How to use GPDB Install SOP
