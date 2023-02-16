@@ -22,7 +22,7 @@ Tip : If same file is in this folder, you should choose the latest file.
   -	Upload path: / data / staging
   -	work by creating staging folder in / data filesystem
 (4)	Follow the GPDB Install SOP procedure to install GPDB
-(5)  SOP v1.2 updated - resource group setting contents added
+(5) SOP v1.2 updated - resource group setting contents added
 
 ------------------------------------------------------------------------------------------
 2. remotechk 설정 및 사용법
