@@ -77,7 +77,7 @@ FROM
            WHEN (tm.node_no + tm.nodes * i ) <= 9 THEN
              tm.prefix_name || '00' || (tm.node_no + tm.nodes * i )::text
            WHEN (tm.node_no + tm.nodes * i ) >= 10 AND (tm.node_no + tm.nodes * i ) <= 99 THEN
-             tm.prefix_name || '0' || (tm.node_no + tm.nodes * i )::text           ELSE
+             tm.prefix_name || '0' || (tm.node_no + tm.nodes * i )::text
            ELSE
              tm.prefix_name || (tm.node_no + tm.nodes * i )::text
            END
