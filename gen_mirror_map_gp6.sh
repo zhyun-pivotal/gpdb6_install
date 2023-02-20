@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "=========================================================================================="
-echo "CAUTION!"
+echo "REQUIREMENT"
 echo "1. Segment node hostname have to be composed of work type (prefix) + sequence number."
 echo "2. Segment nodes have to be expanded in units of 4 units."
 echo "3. Do not put empty values in all input fields."
