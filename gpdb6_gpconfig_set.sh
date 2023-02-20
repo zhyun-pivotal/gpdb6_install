@@ -1,5 +1,5 @@
 #!/bin/bash
-# gp_vmem_protect_limit needed calculate refer pysical memory
+### gp_vmem_protect_limit needed calculate refer pysical memory
 gpconfig -c gp_vmem_protect_limit -v 1114000
 gpconfig -c gp_workfile_compression -v on --masteronly
 gpconfig -c max_connections -m 500 -v 1500
