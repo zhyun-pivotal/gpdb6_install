@@ -3,6 +3,23 @@
 - Tip : If same file is in this folder, you should choose the latest file.
 
 ------------------------------------------------------------------------------------------
+# File Description
+
+1. GPDB6_Install_SOP_v2.2.xlsx : Greenplum 6.x Installation Guide (Standard Operating Procedure)
+2. ansible-playbook.yml : ansible playbook template file
+3. crt_expand_map_gp6.sh : gpexpand map file creation script
+4. gpcc.conf : GPCC non-interactive installation configuration file
+5. gpdb6_gpconfig_check.sh : gpconfig configuration result check script
+6. gpdb6_gpconfig_set.sh : gpconfig setup script
+7. gpdb6_install_result_check.sh : Greenplum 6.x installation result check script
+8. gpdb6_status_check.sh : Greenplum 6.x health check script
+9. gpdb_master_failover_auto_new.tar.gz : Greenplum master failover deamon
+10. gppython.tar.gz : gppython binary files for gputil installation
+11. gputils.tar.gz : gputil files
+12. remotechk.sh : Greenplum health check script
+13. crt_service_monitoring.sh : Management table creation script referred to when remotechk is executed
+
+------------------------------------------------------------------------------------------
 # A. GPDB Install SOP 사용법
 
 1. [Clone or download] 버튼 클릭하여 파일 다운로드
