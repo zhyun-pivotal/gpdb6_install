@@ -5,7 +5,7 @@
 ------------------------------------------------------------------------------------------
 # File Description
 
-1. GPDB6_Install_SOP_v2.2.xlsx : Greenplum 6.x Installation Guide (Standard Operating Procedure)
+1. GPDB6_Install_SOP_v2.2.xlsx : Greenplum 6.x Installation Guide (Standard Operating Procedure) Kor & Eng
 2. ansible-playbook.yml : ansible playbook template file
 3. crt_expand_map_gp6.sh : gpexpand map file creation script
 4. gpcc.conf : GPCC non-interactive installation configuration file
