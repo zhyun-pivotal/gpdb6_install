@@ -90,9 +90,9 @@ FROM
   FROM   template_            AS tm,
          generate_series(${SNUM},${ENUM}) AS i
   ORDER BY 2, 1) AS lt ;
-" > ./crt_expand_map.out
+" > ./result_expand_map.out
 
 echo ""
 echo "=========================================================================================="
-echo "Succes : result write in the ./crt_expand_map.out file"
+echo "Succes : result write in the ./result_expand_map.out file"
 echo "=========================================================================================="
