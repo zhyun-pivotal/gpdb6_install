@@ -13,7 +13,7 @@
 6. gpdb6_gpconfig_set.sh : gpconfig setup script
 7. gpdb6_install_result_check.sh : Greenplum 6.x installation result check script
 8. gpdb6_status_check.sh : Greenplum 6.x health check script
-9. gpdb_master_failover_auto_new.tar.gz : Greenplum master failover deamon
+9. gpfailover_setup.tar.gz : Greenplum master failover demon setup file
 10. gppython.tar.gz : gppython binary files for gputil installation
 11. gputils.tar.gz : gputil files
 12. remotechk.sh : Greenplum health check script
