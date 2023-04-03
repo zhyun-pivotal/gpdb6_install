@@ -19,7 +19,8 @@
 11. gputils.tar.gz : gputil files
 12. remotechk.sh : Greenplum health check script
 13. crt_service_monitoring.sh : Management table creation script referred to when remotechk is executed
-14. SOP_GPDB_catalog_vacuum_full_v1.0.xlsx : Greenplum Catalog vacuum full Guide (Standard Operating Procedure) Kor version
+14. SOP_GPDB_catalog_vacuum_full_v1.0.xlsx : Greenplum Catalog Vacuum Full Guide (Standard Operating Procedure) Kor version
+15. SOP_GPDB6_minor_upgrade_v0.2.xlsx : Greenplum 6.x Minor Upgrade Guide (Standard Operating Procedure) Kor version !!!Draft!!!
 
 ------------------------------------------------------------------------------------------
 # A. GPDB Install SOP 사용법
