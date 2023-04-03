@@ -5,7 +5,8 @@
 ------------------------------------------------------------------------------------------
 # File Description
 
-1. GPDB6_Install_SOP_v2.2.xlsx : Greenplum 6.x Installation Guide (Standard Operating Procedure) Kor & Eng
+1. SOP_GPDB6_Install_v2.5.xlsx : Greenplum 6.x Installation Guide (Standard Operating Procedure) Kor version
+1. SOP_GPDB6_Install_v2.2_Eng.xlsx : Greenplum 6.x Installation Guide (Standard Operating Procedure) Eng version
 2. ansible-playbook.yml : ansible playbook template file
 3. crt_expand_map_gp6.sh : gpexpand map file creation script
 4. gpcc.conf : GPCC non-interactive installation configuration file
@@ -18,6 +19,7 @@
 11. gputils.tar.gz : gputil files
 12. remotechk.sh : Greenplum health check script
 13. crt_service_monitoring.sh : Management table creation script referred to when remotechk is executed
+14. SOP_GPDB_catalog_vacuum_full_v1.0.xlsx : Greenplum Catalog vacuum full Guide (Standard Operating Procedure) Kor version
 
 ------------------------------------------------------------------------------------------
 # A. GPDB Install SOP 사용법
