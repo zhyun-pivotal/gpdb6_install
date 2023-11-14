@@ -428,11 +428,11 @@ echo "$grubby_diff"
 echo ""
 echo "=============================="
 echo "23. ulimit"
-ssh ${MDW} scp /etc/security/limits.d/*-nproc.conf ${MDW}:${REPO}/23_ulimit_mdw
-ssh ${SMDW} scp /etc/security/limits.d/*-nproc.conf ${MDW}:${REPO}/23_ulimit_smdw
+ssh ${MDW} scp /etc/security/limits.conf ${MDW}:${REPO}/23_ulimit_mdw
+ssh ${SMDW} scp /etc/security/limits.conf ${MDW}:${REPO}/23_ulimit_smdw
 for ((i=1;i<=${SDW_CNT};i++))
 do
-		ssh sdw$i scp /etc/security/limits.d/*-nproc.conf ${MDW}:${REPO}/23_ulimit_sdw$i
+		ssh sdw$i scp /etc/security/limits.conf ${MDW}:${REPO}/23_ulimit_sdw$i
 	done
 ulimit_result=`cat ${REPO}/23_ulimit_mdw`
 echo "$ulimit_result"
