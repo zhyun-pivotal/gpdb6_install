@@ -1,7 +1,4 @@
 #!/bin/bash
-### v0.1 20191227 made by yonghyun.jo
-### v0.2 20200313 update by zisu.hyun
-
 ### env
 ALL=/home/gpadmin/gpconfigs/hostfile
 SEG=/home/gpadmin/gpconfigs/hostfile_seg
