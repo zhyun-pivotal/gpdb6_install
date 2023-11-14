@@ -476,26 +476,26 @@ echo "$blockdev_diff"
 echo ""
 echo "=============================="
 echo "25. logind conf"
-ssh ${MDW} scp /etc/systemd/logind.conf ${MDW}:${REPO}/25_loginidconf_mdw
-ssh ${SMDW} scp /etc/systemd/logind.conf ${MDW}:${REPO}/25_loginidconf_smdw
+ssh ${MDW} scp /etc/systemd/logind.conf ${MDW}:${REPO}/25_logindconf_mdw
+ssh ${SMDW} scp /etc/systemd/logind.conf ${MDW}:${REPO}/25_logindconf_smdw
 for ((i=1;i<=${SDW_CNT};i++))
 do
-		ssh sdw$i scp /etc/systemd/logind.conf ${MDW}:${REPO}/25_loginidconf_sdw$i
+		ssh sdw$i scp /etc/systemd/logind.conf ${MDW}:${REPO}/25_logindconf_sdw$i
 	done
-loginidconf_result=`cat ${REPO}/25_loginidconf_mdw | grep IPC`
-echo "$loginidconf_result"
+logindconf_result=`cat ${REPO}/25_logindconf_mdw | grep IPC`
+echo "$logindconf_result"
 echo ""
-loginidconf_diff=`for ((i=1;i<=${SDW_CNT};i++))
+logindconf_diff=`for ((i=1;i<=${SDW_CNT};i++))
 	do
-		diff -q ${REPO}/25_loginidconf_mdw ${REPO}/25_loginidconf_sdw$i
+		diff -q ${REPO}/25_logindconf_mdw ${REPO}/25_logindconf_sdw$i
 	done
-		diff -q ${REPO}/25_loginidconf_mdw ${REPO}/25_loginidconf_smdw`
-if [ ! -n "$loginidconf_diff" ]; then
+		diff -q ${REPO}/25_logindconf_mdw ${REPO}/25_logindconf_smdw`
+if [ ! -n "$logindconf_diff" ]; then
 	echo -e "\033[92m"[NORMAL : ALL SEGMENTS SAME]"\033[0m"
 else
 	echo -e "\033[91m"[WARNING!!! : CHECK FOLLOW MESSAGE]"\033[0m"
 fi
-echo "$loginidconf_diff"
+echo "$logindconf_diff"
 
 echo ""
 echo "=============================="
