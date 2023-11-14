@@ -104,46 +104,46 @@ echo "$firewalld_diff"
 
 echo ""
 echo "=============================="
-echo "3. ntpd"
-ssh ${MDW} systemctl is-active ntpd > ${REPO}/3_ntpd_active_mdw
-ssh ${SMDW} systemctl is-active ntpd > ${REPO}/3_ntpd_active_smdw
+echo "3. chronyd"
+ssh ${MDW} systemctl is-active chronyd > ${REPO}/3_chronyd_active_mdw
+ssh ${SMDW} systemctl is-active chronyd > ${REPO}/3_chronyd_active_smdw
 for ((i=1;i<=${SDW_CNT};i++))
 do
-	ssh sdw$i systemctl is-active ntpd > ${REPO}/3_ntpd_active_sdw$i
+	ssh sdw$i systemctl is-active chronyd > ${REPO}/3_chronyd_active_sdw$i
 	done
-ssh ${MDW} systemctl is-enabled ntpd > ${REPO}/3_ntpd_enabled_mdw
-ssh ${SMDW} systemctl is-enabled ntpd > ${REPO}/3_ntpd_enabled_smdw
+ssh ${MDW} systemctl is-enabled chronyd > ${REPO}/3_chronyd_enabled_mdw
+ssh ${SMDW} systemctl is-enabled chronyd > ${REPO}/3_chronyd_enabled_smdw
 for ((i=1;i<=${SDW_CNT};i++))
 do
-	ssh sdw$i systemctl is-enabled ntpd> ${REPO}/3_ntpd_enabled_sdw$i
+	ssh sdw$i systemctl is-enabled chronyd> ${REPO}/3_chronyd_enabled_sdw$i
 	done
-ntpd_active=`cat ${REPO}/3_ntpd_active_mdw`
-ntpd_enabled=`cat ${REPO}/3_ntpd_enabled_mdw`
-echo "$ntpd_active"
-if [ "$ntpd_active" = active ]; then
+chronyd_active=`cat ${REPO}/3_chronyd_active_mdw`
+chronyd_enabled=`cat ${REPO}/3_chronyd_enabled_mdw`
+echo "$chronyd_active"
+if [ "$chronyd_active" = active ]; then
 	echo -e "\033[92m"[NORMAL]"\033[0m"
 else
 	echo -e "\033[91m"[WARNING!!!]"\033[0m"
 fi
 echo ""
-echo "$ntpd_enabled"
-if [ "$ntpd_enabled" = enabled ]; then
+echo "$chronyd_enabled"
+if [ "$chronyd_enabled" = enabled ]; then
 	echo -e "\033[92m"[NORMAL]"\033[0m"
 else
 	echo -e "\033[91m"[WARNING!!!]"\033[0m"
 fi
 echo ""
-ntpd_diff=`for ((i=1;i<=${SDW_CNT};i++))
+chronyd_diff=`for ((i=1;i<=${SDW_CNT};i++))
 	do
-		diff -q ${REPO}/3_ntpd_enabled_mdw ${REPO}/3_ntpd_enabled_sdw$i
+		diff -q ${REPO}/3_chronyd_enabled_mdw ${REPO}/3_chronyd_enabled_sdw$i
 	done
-		diff -q ${REPO}/3_ntpd_enabled_mdw ${REPO}/3_ntpd_enabled_smdw`
-if [ ! -n "$ntpd_diff" ]; then
+		diff -q ${REPO}/3_chronyd_enabled_mdw ${REPO}/3_chronyd_enabled_smdw`
+if [ ! -n "$chronyd_diff" ]; then
 	echo -e "\033[92m"[NORMAL : ALL SEGMENTS SAME]"\033[0m"
 else
 	echo -e "\033[91m"[WARNING!!! : CHECK FOLLOW MESSAGE]"\033[0m"
 fi
-echo "$ntpd_diff"
+echo "$chronyd_diff"
 
 echo ""
 echo "=============================="
