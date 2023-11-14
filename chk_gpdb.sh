@@ -3,12 +3,13 @@ mkdir -p /home/gpadmin/dba/chklog
 export LOGFILE=/home/gpadmin/dba/chklog/chk_gpdb.$(date '+%Y%m%d_%H%M')
 export SEGHOSTFILE=/home/gpadmin/gpconfigs/hostfile_seg
 
-
 echo "" > $LOGFILE
 echo "####################" >> $LOGFILE
 echo "### 1. GPDB Parameter" >> $LOGFILE
 echo "####################" >> $LOGFILE
 gpssh -h mdw 'cat /data/master/gpseg-1/postgresql.conf | grep -v "#" | grep -v ^$' >> $LOGFILE
+echo "" >> $LOGFILE
+gpssh -h smdw 'cat /data/master/gpseg-1/postgresql.conf | grep -v "#" | grep -v ^$' >> $LOGFILE
 echo "" >> $LOGFILE
 gpssh -f $SEGHOSTFILE 'cat /data/primary/gpseg*/postgresql.conf | grep -v "#" | grep -v ^$' >> $LOGFILE
 
