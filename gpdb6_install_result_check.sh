@@ -8,7 +8,7 @@ SEG=/home/gpadmin/gpconfigs/hostfile_seg
 MDWS=/home/gpadmin/gpconfigs/hostfile_mdw
 DT=`date "+%Y-%m-%d %H:%M:%S"`
 REPO=/home/gpadmin/dba/repo
-LOGFILE=/home/gpadmin/dba/gpdb6_install_result_check_`date "+%Y-%m-%d"`.log
+#LOGFILE=/home/gpadmin/dba/gpdb6_install_result_check_`date "+%Y-%m-%d"`.log
 HOSTFILE=/etc/hosts
 #MDW_CNT=`cat ${HOSTFILE} | grep mdw | wc -l`
 #SDW_CNT=`cat ${HOSTFILE} | grep sdw | wc -l`
@@ -191,48 +191,48 @@ else
 fi
 echo "$rc_local_diff"
 
-echo ""
-echo "=============================="
-echo "5. kdump"
-ssh ${MDW} systemctl is-active kdump > ${REPO}/5_kdump_active_mdw
-ssh ${SMDW} systemctl is-active kdump > ${REPO}/5_kdump_active_smdw
-for ((i=1;i<=${SDW_CNT};i++))
-do
-	ssh sdw$i systemctl is-active kdump > ${REPO}/5_kdump_active_sdw$i
-	done
-ssh ${MDW} systemctl is-enabled kdump > ${REPO}/5_kdump_enabled_mdw
-ssh ${SMDW} systemctl is-enabled kdump > ${REPO}/5_kdump_enabled_smdw
-for ((i=1;i<=${SDW_CNT};i++))
-do
-	ssh sdw$i systemctl is-enabled kdump> ${REPO}/5_kdump_enabled_sdw$i
-	done
-kdump_active=`cat ${REPO}/5_kdump_active_mdw`
-kdump_enabled=`cat ${REPO}/5_kdump_enabled_mdw`
-echo "$kdump_active"
-if [ "$kdump_active" = active ]; then
-	echo -e "\033[92m"[NORMAL]"\033[0m"
-else
-	echo -e "\033[91m"[WARNING!!!]"\033[0m"
-fi
-echo ""
-echo "$kdump_enabled"
-if [ "$kdump_enabled" = enabled ]; then
-	echo -e "\033[92m"[NORMAL]"\033[0m"
-else
-	echo -e "\033[91m"[WARNING!!!]"\033[0m"
-fi
-echo ""
-kdump_diff=`for ((i=1;i<=${SDW_CNT};i++))
-	do
-		diff -q ${REPO}/5_kdump_enabled_mdw ${REPO}/5_kdump_enabled_sdw$i
-	done
-		diff -q ${REPO}/5_kdump_enabled_mdw ${REPO}/5_kdump_enabled_smdw`
-if [ ! -n "$kdump_diff" ]; then
-	echo -e "\033[92m"[NORMAL : ALL SEGMENTS SAME]"\033[0m"
-else
-	echo -e "\033[91m"[WARNING!!! : CHECK FOLLOW MESSAGE]"\033[0m"
-fi
-echo "$kdump_diff"
+#echo ""
+#echo "=============================="
+#echo "5. kdump"
+#ssh ${MDW} systemctl is-active kdump > ${REPO}/5_kdump_active_mdw
+#ssh ${SMDW} systemctl is-active kdump > ${REPO}/5_kdump_active_smdw
+#for ((i=1;i<=${SDW_CNT};i++))
+#do
+#	ssh sdw$i systemctl is-active kdump > ${REPO}/5_kdump_active_sdw$i
+#	done
+#ssh ${MDW} systemctl is-enabled kdump > ${REPO}/5_kdump_enabled_mdw
+#ssh ${SMDW} systemctl is-enabled kdump > ${REPO}/5_kdump_enabled_smdw
+#for ((i=1;i<=${SDW_CNT};i++))
+#do
+#	ssh sdw$i systemctl is-enabled kdump> ${REPO}/5_kdump_enabled_sdw$i
+#	done
+#kdump_active=`cat ${REPO}/5_kdump_active_mdw`
+#kdump_enabled=`cat ${REPO}/5_kdump_enabled_mdw`
+#echo "$kdump_active"
+#if [ "$kdump_active" = active ]; then
+#	echo -e "\033[92m"[NORMAL]"\033[0m"
+#else
+#	echo -e "\033[91m"[WARNING!!!]"\033[0m"
+#fi
+#echo ""
+#echo "$kdump_enabled"
+#if [ "$kdump_enabled" = enabled ]; then
+#	echo -e "\033[92m"[NORMAL]"\033[0m"
+#else
+#	echo -e "\033[91m"[WARNING!!!]"\033[0m"
+#fi
+#echo ""
+#kdump_diff=`for ((i=1;i<=${SDW_CNT};i++))
+#	do
+#		diff -q ${REPO}/5_kdump_enabled_mdw ${REPO}/5_kdump_enabled_sdw$i
+#	done
+#		diff -q ${REPO}/5_kdump_enabled_mdw ${REPO}/5_kdump_enabled_smdw`
+#if [ ! -n "$kdump_diff" ]; then
+#	echo -e "\033[92m"[NORMAL : ALL SEGMENTS SAME]"\033[0m"
+#else
+#	echo -e "\033[91m"[WARNING!!! : CHECK FOLLOW MESSAGE]"\033[0m"
+#fi
+#echo "$kdump_diff"
 
 echo ""
 echo ""
@@ -525,7 +525,7 @@ echo "$blockdev_diff"
 
 echo ""
 echo "=============================="
-echo "25. loginid conf"
+echo "25. logind conf"
 ssh ${MDW} scp /etc/systemd/logind.conf ${MDW}:${REPO}/25_loginidconf_mdw
 ssh ${SMDW} scp /etc/systemd/logind.conf ${MDW}:${REPO}/25_loginidconf_smdw
 for ((i=1;i<=${SDW_CNT};i++))
@@ -571,26 +571,26 @@ else
 fi
 echo "$sshdconfig_diff"
 
-echo ""
-echo "=============================="
-echo "27. yum"
-ssh ${MDW} yum repolist > ${REPO}/27_yum_mdw
-ssh ${SMDW} yum repolist > ${REPO}/27_yum_smdw
-for ((i=1;i<=${SDW_CNT};i++))
-do
-		ssh sdw$i yum repolist > ${REPO}/27_yum_sdw$i
-	done
-yum_result=`cat ${REPO}/27_yum_mdw`
-echo "$yum_result"
-echo ""
-yum_diff=`for ((i=1;i<=${SDW_CNT};i++))
-	do
-		diff -q ${REPO}/27_yum_mdw ${REPO}/27_yum_sdw$i
-	done
-		diff -q ${REPO}/27_yum_mdw ${REPO}/27_yum_smdw`
-if [ ! -n "$yum_diff" ]; then
-	echo -e "\033[92m"[NORMAL : ALL SEGMENTS SAME]"\033[0m"
-else
-	echo -e "\033[91m"[WARNING!!! : CHECK FOLLOW MESSAGE]"\033[0m"
-fi
-echo "$yum_diff"
+#echo ""
+#echo "=============================="
+#echo "27. yum"
+#ssh ${MDW} yum repolist > ${REPO}/27_yum_mdw
+#ssh ${SMDW} yum repolist > ${REPO}/27_yum_smdw
+#for ((i=1;i<=${SDW_CNT};i++))
+#do
+#		ssh sdw$i yum repolist > ${REPO}/27_yum_sdw$i
+#	done
+#yum_result=`cat ${REPO}/27_yum_mdw`
+#echo "$yum_result"
+#echo ""
+#yum_diff=`for ((i=1;i<=${SDW_CNT};i++))
+#	do
+#		diff -q ${REPO}/27_yum_mdw ${REPO}/27_yum_sdw$i
+#	done
+#		diff -q ${REPO}/27_yum_mdw ${REPO}/27_yum_smdw`
+#if [ ! -n "$yum_diff" ]; then
+#	echo -e "\033[92m"[NORMAL : ALL SEGMENTS SAME]"\033[0m"
+#else
+#	echo -e "\033[91m"[WARNING!!! : CHECK FOLLOW MESSAGE]"\033[0m"
+#fi
+#echo "$yum_diff"
