@@ -1,10 +1,7 @@
 #!/bin/bash
-##########
-### example : sh chk_os.sh /home/gpadmin/gpconfigs/hostfile_all
-##########
 mkdir -p /home/gpadmin/dba/chklog
 export LOGFILE=/home/gpadmin/dba/chklog/chk_os.$(date '+%Y%m%d_%H%M')
-export HOSTFILE=$1
+export HOSTFILE=/home/gpadmin/gpconfigs/hostfile_all
 
 echo "" > $LOGFILE
 echo "####################" >> $LOGFILE
