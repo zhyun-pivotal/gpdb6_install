@@ -34,7 +34,7 @@ echo "" >> $LOGFILE
 echo "####################" >> $LOGFILE
 echo "### 5. sysctl.conf" >> $LOGFILE
 echo "####################" >> $LOGFILE
-gpssh -f $HOSTFILE 'sudo cat /etc/sysctl.conf | grep -v "#"' >> $LOGFILE
+gpssh -f $HOSTFILE 'sudo cat /etc/sysctl.conf | grep -v "#" | grep -v ^$' >> $LOGFILE
 
 echo "" >> $LOGFILE
 echo "####################" >> $LOGFILE
