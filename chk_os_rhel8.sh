@@ -32,6 +32,38 @@ echo "####################" >> $LOGFILE
 echo "### 5. sysctl.conf" >> $LOGFILE
 echo "####################" >> $LOGFILE
 gpssh -f $HOSTFILE 'sudo cat /etc/sysctl.conf | grep -v "#" | grep -v ^$' >> $LOGFILE
+echo ""
+gpssh -f $HOSTFILE 'echo "kernel.shmall = " `cat /proc/sys/kernel/shmall`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "kernel.shmmax = " `cat /proc/sys/kernel/shmmax`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "kernel.shmmni = " `cat /proc/sys/kernel/shmmni`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "vm.overcommit_memory = " `cat /proc/sys/vm/overcommit_memory`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "vm.overcommit_ratio = " `cat /proc/sys/vm/overcommit_ratio`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "net.ipv4.ip_local_port_range = " `cat /proc/sys/net/ipv4/ip_local_port_range`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "kernel.sem = " `cat /proc/sys/kernel/sem`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "kernel.sysrq = " `cat /proc/sys/kernel/sysrq`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "kernel.core_uses_pid = " `cat /proc/sys/kernel/core_uses_pid`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "kernel.msgmnb = " `cat /proc/sys/kernel/msgmnb`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "kernel.msgmax = " `cat /proc/sys/kernel/msgmax`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "kernel.msgmni = " `cat /proc/sys/kernel/msgmni`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "net.ipv4.tcp_syncookies = " `cat /proc/sys/net/ipv4/tcp_syncookies`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "net.ipv4.conf.default.accept_source_route = " `cat /proc/sys/net/ipv4/conf/default/accept_source_route`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "net.ipv4.tcp_max_syn_backlog = " `cat /proc/sys/net/ipv4/tcp_max_syn_backlog`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "net.ipv4.conf.all.arp_filter = " `cat /proc/sys/net/ipv4/conf/all/arp_filter`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "net.ipv4.ipfrag_high_thresh = " `cat /proc/sys/net/ipv4/ipfrag_high_thresh`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "net.ipv4.ipfrag_low_thresh = " `cat /proc/sys/net/ipv4/ipfrag_low_thresh`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "net.ipv4.ipfrag_time = " `cat /proc/sys/net/ipv4/ipfrag_time`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "net.core.netdev_max_backlog = " `cat /proc/sys/net/core/netdev_max_backlog`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "net.core.rmem_max = " `cat /proc/sys/net/core/rmem_max`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "net.core.wmem_max = " `cat /proc/sys/net/core/wmem_max`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "vm.swappiness = " `cat /proc/sys/vm/swappiness`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "vm.zone_reclaim_mode = " `cat /proc/sys/vm/zone_reclaim_mode`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "vm.dirty_expire_centisecs = " `cat /proc/sys/vm/dirty_expire_centisecs`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "vm.dirty_writeback_centisecs = " `cat /proc/sys/vm/dirty_writeback_centisecs`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "vm.dirty_background_ratio = " `cat /proc/sys/vm/dirty_background_ratio`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "vm.dirty_ratio = " `cat /proc/sys/vm/dirty_ratio`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "vm.dirty_background_bytes = " `cat /proc/sys/vm/dirty_background_bytes`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "vm.dirty_bytes = " `cat /proc/sys/vm/dirty_bytes`' >> $LOGFILE
+gpssh -f $HOSTFILE 'echo "kernel.core_pattern = " `cat /proc/sys/kernel/core_pattern`' >> $LOGFILE
 
 echo "" >> $LOGFILE
 echo "####################" >> $LOGFILE
