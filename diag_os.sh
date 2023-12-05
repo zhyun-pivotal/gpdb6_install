@@ -1,11 +1,21 @@
 #!/bin/bash
-mkdir -p /home/gpadmin/dba/chklog
-export LOGFILE=/home/gpadmin/dba/chklog/chk_os_rhel8.$(date '+%Y%m%d_%H%M')
+mkdir -p /home/gpadmin/dba/diaglog
+export LOGFILE=/home/gpadmin/dba/diaglog/diag_os.$(date '+%Y%m%d_%H%M')
 export HOSTFILE=/home/gpadmin/gpconfigs/hostfile_all
 
 OSVER=`cat /etc/redhat-release | awk '{print $4}' | awk -F'.' '{print $1'}`
 
 echo "" > $LOGFILE
+echo "####################" >> $LOGFILE
+echo "### 0. Memory config check" >> $LOGFILE
+echo "####################" >> $LOGFILE
+gpssh -f $HOSTFILE sudo echo "kernel.shmall = "$(expr $(getconf _PHYS_PAGES) / 2) >> $LOGFILE
+echo "" >> $LOGFILE
+gpssh -f $HOSTFILE sudo echo "kernel.shmmax = "$(expr $(getconf _PHYS_PAGES) / 2 \* $(getconf PAGE_SIZE)) >> $LOGFILE
+echo "" >> $LOGFILE
+gpssh -f $HOSTFILE sudo grep 'MemTotal' /proc/meminfo | awk -F']' '{print $2}' | awk '{OFMT = "%.0f";} {print "vm.min_free_kbytes =", $2 * .03;}' >> $LOGFILE
+
+echo "" >> $LOGFILE
 echo "####################" >> $LOGFILE
 echo "### 1. OS version" >> $LOGFILE
 echo "####################" >> $LOGFILE
