@@ -3,6 +3,8 @@ mkdir -p /home/gpadmin/dba/chklog
 export LOGFILE=/home/gpadmin/dba/chklog/chk_os_rhel8.$(date '+%Y%m%d_%H%M')
 export HOSTFILE=/home/gpadmin/gpconfigs/hostfile_all
 
+OSVER=`cat /etc/redhat-release | awk '{print $4}' | awk -F'.' '{print $1'}`
+
 echo "" > $LOGFILE
 echo "####################" >> $LOGFILE
 echo "### 1. OS version" >> $LOGFILE
@@ -32,7 +34,7 @@ echo "####################" >> $LOGFILE
 echo "### 5. sysctl.conf" >> $LOGFILE
 echo "####################" >> $LOGFILE
 gpssh -f $HOSTFILE 'sudo cat /etc/sysctl.conf | grep -v "#" | grep -v ^$' >> $LOGFILE
-echo ""
+echo "" >> $LOGFILE
 gpssh -f $HOSTFILE 'echo "kernel.shmall = " `cat /proc/sys/kernel/shmall`' >> $LOGFILE
 gpssh -f $HOSTFILE 'echo "kernel.shmmax = " `cat /proc/sys/kernel/shmmax`' >> $LOGFILE
 gpssh -f $HOSTFILE 'echo "kernel.shmmni = " `cat /proc/sys/kernel/shmmni`' >> $LOGFILE
@@ -118,6 +120,11 @@ echo "" >> $LOGFILE
 echo "####################" >> $LOGFILE
 echo "### 13. NTP" >> $LOGFILE
 echo "####################" >> $LOGFILE
-gpssh -f $HOSTFILE 'sudo systemctl status chronyd' >> $LOGFILE
+if [ ${OSVER} -eq 8 ]
+then
+  gpssh -f $HOSTFILE 'sudo systemctl status chronyd' >> $LOGFILE
+else
+  gpssh -f $HOSTFILE 'sudo systemctl status ntpd' >> $LOGFILE
+fi
 echo "" >> $LOGFILE
 gpssh -f $HOSTFILE 'sudo date' >> $LOGFILE
